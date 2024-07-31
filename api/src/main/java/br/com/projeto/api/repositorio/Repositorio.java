@@ -2,7 +2,7 @@ package br.com.projeto.api.repositorio;
 
 import java.util.List;
 
-
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +16,14 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
 
    Pessoa findById(int codigo);
 
-    // List<Pessoa> findByOrderByIdade();
-    
+// List<Pessoa> findByOrderName();
+   
+//    List<Pessoa> findByNomeContaining(String termo);
+
+   @Query(value = "SELECT SUN(idade) FROM tb_pessoas", nativeQuery = true)
+   int somaIdade();
+
+
+
+   
 }

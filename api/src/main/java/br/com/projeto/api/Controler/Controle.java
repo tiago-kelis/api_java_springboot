@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+
+
+
+
 @RestController
 public class Controle { 
 
@@ -52,12 +56,23 @@ public class Controle {
     @GetMapping("/api/contador")    
     public long Contador(){
         return acao.count();
+    } 
+    
+    @GetMapping("/api/sun")
+    public int somaIdade(){
+        return acao.somaIdade();
     }
-
+   
     // @GetMapping("/api/order")
-    // public List<Pessoa> orderPorNome(){
-    //     return acao.findByOrderByIdade();
+    // public List<Pessoa> ordenar(){
+    //     return acao.findByOrderName();
     // }
+
+//     @GetMapping("/api/contem")
+// public List<Pessoa> contem(){
+//         return acao.findByNomeContaining("M");
+//     }
+   
     
     @GetMapping("")
     public String mensagem(){
@@ -80,4 +95,9 @@ public class Controle {
     }
     
     
+    
+    
 }
+
+
+
